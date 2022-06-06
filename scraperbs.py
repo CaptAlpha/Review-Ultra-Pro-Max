@@ -54,3 +54,31 @@ def cus_rev(soup):
     return (result)
   
   
+
+def product_info(soup):
+  
+    # find the Html tag
+    # with find()
+    # and convert into string
+    data_str = ""
+    pro_info = []
+  
+    for item in soup.find_all("ul", class_="a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list"):
+        data_str = data_str + item.get_text()
+        pro_info.append(data_str.split("\n"))
+        data_str = ""
+    return pro_info
+  
+  
+def rev_img(soup):
+  
+    # find the Html tag
+    # with find()
+    # and convert into string
+    data_str = ""
+    cus_list = []
+    images = []
+    for img in soup.findAll('img', class_="cr-lightbox-image-thumbnail"):
+        images.append(img.get('src'))
+    return images
+  
