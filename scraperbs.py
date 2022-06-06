@@ -25,3 +25,32 @@ def html_code(url):
   
     # display html code
     return (soup)
+
+def cus_data(soup):
+    # find the Html tag
+    # with find()
+    # and convert into string
+    data_str = ""
+    cus_list = []
+  
+    for item in soup.find_all("span", class_="a-profile-name"):
+        data_str = data_str + item.get_text()
+        cus_list.append(data_str)
+        data_str = ""
+    return cus_list
+  
+  
+
+def cus_rev(soup):
+    # find the Html tag
+    # with find()
+    # and convert into string
+    data_str = ""
+  
+    for item in soup.find_all("div", class_="a-expander-content reviewText review-text-content a-expander-partial-collapse-content"):
+        data_str = data_str + item.get_text()
+  
+    result = data_str.split("\n")
+    return (result)
+  
+  
