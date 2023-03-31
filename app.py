@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from flask import session as login_session
 from flask import make_response
 from sqlalchemy import create_engine
-from scraperbs import getdata, html_code, cus_data, cus_rev, product_info, rev_img
+from scraperbs import getdata, html_code, cus_data, cus_rev, product_info, rev_img, review_sentiment
 
 app = Flask(__name__)
 
@@ -44,7 +44,8 @@ def scrape():
     #Show images from rev_img
     images = rev_img(data)
 
-   
+    #Classify the review sentiment of the product
+    sentiment = review_sentiment(rev_result)
     
     
 

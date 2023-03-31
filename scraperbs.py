@@ -82,3 +82,14 @@ def rev_img(soup):
         images.append(img.get('src'))
     return images
   
+#Classify the review sentiment using model.h5
+def review_sentiment(review):
+    from keras.models import load_model
+    model = load_model('model.h5')
+    review = review.reshape(1, -1)
+    review = review.astype('float32')
+    review = review / 255
+    prediction = model.predict(review)
+    return prediction
+
+    

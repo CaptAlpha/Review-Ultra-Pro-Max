@@ -17,8 +17,10 @@
     <ul>
         {% for cus_rev in cus_rev %}
             <li>{{cus_rev}}</li>
+            <br>
         {% endfor %}
     </ul>
+    {{summary}}
     <h2>Product Info</h2>
     <ul>
         {% for pro in pro_result %}
@@ -30,7 +32,7 @@
     <ul>
         {% for img in rev_img %}
             <li>{{img}}</li>
-            <li><img src="{{img}}" alt=""></li>
+            <li><img src="{{img}}" alt=""  style="width: 10%;height:10%;"></li>
         {% endfor %}
 
 </body>
